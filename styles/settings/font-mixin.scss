@@ -1,0 +1,13 @@
+@import "../settings/font-tokens";
+
+@mixin font($variant, $type, $weight, $style) {
+  $font-full-path: "./fonts/#{$variant}";
+  @font-face {
+    font-weight: $weight;
+    font-family: "#{$variant}-#{$type}";
+    font-style: $style;
+    src: local("#{$variant} #{$type}"), local("#{$variant}-#{$type}"),
+    url("#{$font-full-path}-#{$type}.ttf") format("truetype");
+    font-display: swap;
+  }
+}

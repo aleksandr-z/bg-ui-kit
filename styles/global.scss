@@ -1,0 +1,12 @@
+@import "./settings/reset";
+@import "./settings/main";
+@import './settings/font-tokens';
+@import './settings/font-mixin';
+
+@include font($font_text, "Bold", map-get($fontWeight, bold), normal);
+
+@include font($font_text, "Medium", map-get($fontWeight, medium), normal);
+
+@include font($font_text, "Regular", map-get($fontWeight, regular), normal);
+
+@include font($font_text, "Light", map-get($fontWeight, ligth), normal);

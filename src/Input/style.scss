@@ -1,0 +1,101 @@
+@import "../../styles/settings/colors";
+@import "../../styles/settings/size";
+@import "../../styles/settings/font-tokens";
+
+.input-wrapper {
+  border: 2px solid $red_40;
+  border-radius: $borderRadius;
+  padding: 4px;
+  color: $text_primary_color;
+}
+
+.isLoading, .isDisabled {
+  background: $disabledBackground;
+  color: $disabledText;
+}
+
+.input {
+  width: 100%;
+  font-size: inherit;
+  &:disabled {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+
+
+.size {
+  &-xs {
+    @include font_style($font_size_2xs, $line_height_2xs, $font_weight_light);
+    height: 26px;
+    .dice-wrapper {
+      top: -86px;
+      right: -80px;
+      transform: scale3d(0.05, 0.05, 0.05);
+      position: absolute;
+    }
+  }
+  &-sm {
+    @include font_style($font_size_2sm, $line_height_2sm, $font_weight_light);
+    height: 32px;
+    .dice-wrapper {
+      top: -79px;
+      right: -74px;
+      transform: scale3d(0.07, 0.07, 0.07);
+      position: absolute;
+    }
+  }
+  &-md {
+    @include font_style($font_size_2md, $line_height_2md, $font_weight_light);
+    height: 36px;
+    .dice-wrapper {
+      top: -72px;
+      right: -69px;
+      transform: scale3d(0.08, 0.08, 0.08);
+      position: absolute;
+    }
+  }
+  &-xl {
+    @include font_style($font_size_2xl, $line_height_2xl, $font_weight_light);
+    height: 42px;
+    .dice-wrapper {
+      top: -65px;
+      right: -62px;
+      transform: scale3d(0.10, 0.10, 0.10);
+      position: absolute;
+    }
+  }
+  &-lg {
+    @include font_style($font_size_2lg, $line_height_2lg, $font_weight_light);
+    height: 48px;
+    .dice-wrapper {
+      top: -57px;
+      right: -55px;
+      transform: scale3d(0.12, 0.12, 0.12);
+      position: absolute;
+    }
+  }
+}
+
+.label-size {
+  &-xs {
+    @include font_style($font_size_xs, $line_height_xs, $font_weight_light);
+  }
+  &-sm {
+    @include font_style($font_size_sm, $line_height_sm, $font_weight_light);
+  }
+  &-md {
+    @include font_style($font_size_md, $line_height_md, $font_weight_light);
+  }
+  &-xl {
+    @include font_style($font_size_xl, $line_height_xl, $font_weight_light);
+  }
+  &-lg {
+    @include font_style($font_size_lg, $line_height_lg, $font_weight_light);
+  }
+}
+
+.label {
+  margin-bottom: 1rem;
+}

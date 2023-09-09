@@ -1,0 +1,203 @@
+@import "../../../styles/settings/colors";
+
+// Центральная точка
+@mixin centerDot (){
+    top: 42%;
+    left: 42%;
+}
+
+// Верхняя центральная точка (у шестерки)
+@mixin topCenterDot (){
+  top: 62%;
+  left: 42%;
+}
+
+// Нижняя центральная точка (у шестерки)
+@mixin downCenterDot (){
+  top: 22%;
+  left: 42%;
+}
+
+// Верхняя левая угловая
+@mixin topLeftDot (){
+  top: 22%;
+  left: 22%;
+}
+
+// Верхняя правая угловая
+@mixin topRightDot (){
+  top: 22%;
+  left: 62%;
+}
+
+// Нижняя левая угловая
+@mixin downLeftDot (){
+  top: 62%;
+  left: 22%;
+}
+
+// Нижняя правая угловая
+@mixin downRightDot (){
+  top: 62%;
+  left: 62%;
+}
+
+.surface1 {
+  transform: translateZ(100px);
+}
+
+.surface2 {
+  transform: rotateX(-180deg) translateZ(100px);
+}
+
+.surface3 {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.surface4 {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.surface5 {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.surface6 {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.dice-wrapper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto 40px;
+  perspective:1000px;
+  perspective-origin: 50% 100%;
+}
+
+@keyframes rotation {
+  0% {
+    transform:rotateX(-90deg) rotateY(0deg);
+  }
+  100% {
+    transform:rotateX(270deg) rotateY(360deg);
+  }
+}
+
+.dice {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation-name: rotation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  // transform: rotateX(0deg) rotateY(0deg);
+  &:hover {
+    cursor:pointer;
+  }
+  & > div {
+    background: $red_50;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid $red_70;
+    margin: 0 auto;
+    font-size: 500%;
+    padding: 50px 0;
+  }
+}
+
+.dot {
+  display: block;
+  position: absolute;
+  width: 16%;
+  height: 16%;
+  background: $grey_10;
+  border-radius: 50%;
+}
+
+.surface1 {
+  .dot1 {
+    @include centerDot;
+  }
+}
+
+.surface2 {
+  .dot1 {
+    @include topLeftDot;
+  }
+  .dot2 {
+    @include downRightDot;
+  }
+}
+
+.surface3 {
+  .dot1 {
+    @include topLeftDot;
+  }
+  .dot2 {
+    @include centerDot;
+  }
+  .dot3 {
+    @include downRightDot;
+  }
+}
+
+.surface4 {
+  .dot1 {
+    @include topLeftDot;
+  }
+  .dot2 {
+    @include topRightDot;
+  }
+  .dot3 {
+    @include downLeftDot;
+  }
+  .dot4 {
+    @include downRightDot;
+  }
+}
+
+.surface5 {
+  .dot1 {
+    @include topLeftDot;
+  }
+  .dot2 {
+    @include topRightDot;
+  }
+  .dot3 {
+    @include downLeftDot;
+  }
+  .dot4 {
+    @include downRightDot;
+  }
+  .dot5 {
+    @include centerDot;
+  }
+}
+
+.surface6 {
+  .dot1 {
+    @include topLeftDot;
+  }
+  .dot2 {
+    @include topRightDot;
+  }
+  .dot3 {
+    @include downLeftDot;
+  }
+  .dot4 {
+    @include downRightDot;
+  }
+  .dot5 {
+    @include topCenterDot;
+  }
+  .dot6 {
+    @include downCenterDot;
+  }
+}
+

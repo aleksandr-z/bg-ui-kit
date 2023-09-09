@@ -1,0 +1,135 @@
+@import "./size";
+
+$font_text: 'YandexSansText';
+
+$font_text_thin: '#{$font_text}-Thin';
+$font_text_light: '#{$font_text}-Light';
+$font_text_medium: '#{$font_text}-Medium';
+$font_text_regular: '#{$font_text}-Regular';
+$font_text_regular_italic: '#{$font_text}-RegularItalic';
+$font_text_bold: '#{$font_text}-Bold';
+
+
+// Стандартные размеры шрифта
+$font_size_xs: 2 * $base;
+$font_size_2xs: 2.5 * $base;
+$font_size_sm: 3 * $base;
+$font_size_2sm: 3.5 * $base;
+$font_size_md: 4 * $base;
+$font_size_2md: 4.5 * $base;
+$font_size_xl: 5 * $base;
+$font_size_2xl: 5.5 * $base;
+$font_size_lg: 6 * $base;
+$font_size_2lg: 6.5 * $base;
+$font_size_3lg: 7 * $base;
+$font_size_4lg: 7.5 * $base;
+$font_size_5lg: 8 * $base;
+$font_size_6lg: 8.5 * $base;
+
+// Стандартные высоты шрифта
+$line_height_xs: 3 * $base;
+$line_height_2xs: 3.5 * $base;
+$line_height_sm: 4 * $base;
+$line_height_2sm: 4.5 * $base;
+$line_height_md: 5 * $base;
+$line_height_2md: 5.5 * $base;
+$line_height_xl: 6 * $base;
+$line_height_2xl: 6.5 * $base;
+$line_height_lg: 7 * $base;
+$line_height_2lg: 7.5 * $base;
+$line_height_3lg: 8 * $base;
+$line_height_4lg: 8.5 * $base;
+$line_height_5lg: 9 * $base;
+$line_height_6lg: 9.5 * $base;
+
+// базовые толщины шрифта
+$font_weight_thin: 300;
+$font_weight_light: 400;
+$font_weight_regular: 500;
+$font_weight_medium: 550;
+$font_weight_bold: 600;
+$font_family: (
+  $font_weight_thin: $font_text_thin,
+  $font_weight_light: $font_text_light,
+  $font_weight_regular: $font_text_medium,
+  $font_weight_medium: $font_text_regular,
+  $font_weight_bold: $font_text_bold,
+);
+
+// Стандартные размеры шрифтов
+$fontSize: (
+  // 12px
+  'xs': $base * 3,
+  // 14px
+  'sm': $base * 3.5,
+  // 16px
+  'md': $base * 4,
+  // 18px
+  'lg': $base * 4.5
+);
+
+$fontWeight: (
+  'thin': $font_weight_thin,
+  'light': $font_weight_light,
+  'regular': $font_weight_regular,
+  'medium': $font_weight_medium,
+  'bold': $font_weight_bold,
+);
+
+@mixin font_style($size, $height, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  font-family: map-get($font_family, $weight);
+}
+
+@mixin h1 {
+  @include font_style($font_size_5lg, $line_height_5lg, $font_weight_bold);
+}
+@mixin h2 {
+  @include font_style($font_size_3lg, $line_height_3lg, $font_weight_bold);
+}
+@mixin h3 {
+  @include font_style($font_size_lg, $line_height_lg, $font_weight_bold);
+}
+@mixin h4 {
+  @include font_style($font_size_xl, $line_height_xl, $font_weight_bold);
+}
+@mixin h5 {
+  @include font_style($font_size_2md, $line_height_2md, $font_weight_bold);
+}
+@mixin h6 {
+  @include font_style($font_size_md, $line_height_md, $font_weight_bold);
+}
+
+@mixin subtitle_xs {
+  @include font_style($font_size_xs, $line_height_xs, $font_weight_bold);
+}
+@mixin subtitle_sm {
+  @include font_style($font_size_sm, $line_height_sm, $font_weight_bold);
+}
+@mixin subtitle_md {
+  @include font_style($font_size_md, $line_height_md, $font_weight_bold);
+}
+@mixin subtitle_xl {
+  @include font_style($font_size_xl, $line_height_xl, $font_weight_bold);
+}
+@mixin subtitle_lg {
+  @include font_style($font_size_lg, $line_height_lg, $font_weight_bold);
+}
+
+@mixin text_xs {
+  @include font_style($font_size_xs, $line_height_xs, $font_weight_thin);
+}
+@mixin text_sm {
+  @include font_style($font_size_sm, $line_height_sm, $font_weight_light);
+}
+@mixin text_md {
+  @include font_style($font_size_md, $line_height_md, $font_weight_light);
+}
+@mixin text_xl {
+  @include font_style($font_size_xl, $line_height_xl, $font_weight_light);
+}
+@mixin text_lg {
+  @include font_style($font_size_lg, $line_height_lg, $font_weight_light);
+}

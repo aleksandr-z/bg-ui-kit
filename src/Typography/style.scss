@@ -1,0 +1,36 @@
+@import '../../styles/settings/font-tokens';
+
+.h1 {
+  @include h1;
+}
+.h2 {
+  @include h2;
+}
+.h3 {
+  @include h3;
+}
+.h4 {
+  @include h4;
+}
+.h5 {
+  @include h5;
+}
+.h6 {
+  @include h6;
+}
+
+.text-xs {
+  @include text_xs;
+}
+.text-sm {
+  @include text_sm;
+}
+.text-md {
+  @include text_md;
+}
+.text-xl {
+  @include text_xl;
+}
+.text-lg {
+  @include text_lg;
+}

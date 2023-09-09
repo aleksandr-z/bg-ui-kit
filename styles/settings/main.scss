@@ -1,0 +1,14 @@
+@import "./colors";
+@import "./font-tokens";
+html {
+  font-size: 4px;
+}
+
+body {
+  font-size: 4rem;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: $text_primary_color;
+  @include font_style($font_size_md, $line_height_md, $font_weight_light);
+}
+
