@@ -1,6 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
-// import { readdirSync } from 'fs';
-// import path from 'path';
 
 const config: any = {
   framework: {
@@ -8,16 +6,6 @@ const config: any = {
     options: {},
   },
   stories: ['../src/**/*.story.[tj]sx'],
-  //[
-  //   ...readdirSync(path.resolve(__dirname, '../src/'), { withFileTypes: true })
-  //       .filter((dirent) => dirent.isDirectory())
-  //       .map(readdirSync(path.resolve(__dirname, `../src/${dirent.name}`, { withFileTypes: true })))
-  //       .filter((dirent) => { console.log(dirent); return dirent.name !== 'to_ignore'})
-  //       .map(
-  //           (dirent) =>
-  //               `${dirent.name}/**/*.story.@(js|jsx|ts|tsx|mdx)`
-  //       )
-  // ], // ,
   addons: [
     '@storybook/addon-links',
     { name: '@storybook/addon-essentials', options: { actions: false } },
