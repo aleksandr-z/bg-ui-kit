@@ -3,7 +3,6 @@ import { SizeType } from '../props';
 import cn from 'classnames';
 import styles from './style.scss';
 import { Dice } from '../Loading/components/Dice';
-// test comment
 export type TInputProps = {
   isDisabled?: boolean;
   isLoading?: boolean;
