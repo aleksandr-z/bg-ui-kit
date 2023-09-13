@@ -6,6 +6,19 @@ import { Input } from '../Input';
 const meta: Meta<typeof Input> = {
   title: 'Controllers',
   component: Input,
+  args: {
+    isDisabled: false,
+    isLoading: false,
+    value: 'Значение',
+    inputType: 'text',
+    size: 'md',
+  },
+  parameters: {
+      controls: {
+          exclude: ['inputType','value'],
+          include: ['isDisabled','isLoading','placeholder','size','label']
+      }
+  }
 };
 
 type Story = StoryObj<typeof Input>;
@@ -13,13 +26,18 @@ type Story = StoryObj<typeof Input>;
 export default meta;
 
 export const Primary: Story = {
-  name: 'Input',
+  name: 'Input Type Text',
   args: {
     label: 'Описание',
-    value: 'Значение',
-    placeholder: 'Плейсхолдер'
+    placeholder: 'Плейсхолдер',
   },
-  argTypes: {
-      size: ['xs', 'sm', 'md', 'xl', 'lg'],
-  },
+};
+
+export const InputPasswordType: Story = {
+    name: 'Input Type Password',
+    args: {
+        label: 'Введите пароль',
+        inputType: 'password',
+        placeholder: 'Пароль',
+    },
 };
