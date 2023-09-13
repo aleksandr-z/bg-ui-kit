@@ -2,11 +2,53 @@
 @import "../../styles/settings/size";
 @import "../../styles/settings/font-tokens";
 
+//глаз в инпут
+@mixin eye() {
+  height: 100%;
+  aspect-ratio: 1/1;
+  top: 0;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
+  &::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    border: 3px solid $text_primary_color;
+    border-radius: 70% 30% 70% 30%;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 0;
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 20%;
+    height: 20%;
+    border: 3px solid $text_primary_color;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
 .input-wrapper {
   border: 2px solid $red_40;
   border-radius: $borderRadius;
   padding: 4px;
   color: $text_primary_color;
+}
+
+.openEye {
+  width: 15%;
+  height: 15%;
+  background: $text_primary_color;
+  border-radius: 100%;
+  z-index: 2;
 }
 
 .isLoading, .isDisabled {
@@ -21,59 +63,81 @@
     background-color: inherit;
     color: inherit;
   }
+  &[type='password'] {
+    letter-spacing: 0.3em;
+  }
 }
-
 
 
 .size {
   &-xs {
     @include font_style($font_size_2xs, $line_height_2xs, $font_weight_light);
     height: 26px;
+    position: relative;
     .dice-wrapper {
-      top: -86px;
-      right: -80px;
+      top: -107px;
+      right: -82px;
       transform: scale3d(0.05, 0.05, 0.05);
       position: absolute;
+    }
+    .isPasswordType {
+      @include eye
     }
   }
   &-sm {
     @include font_style($font_size_2sm, $line_height_2sm, $font_weight_light);
     height: 32px;
+    position: relative;
     .dice-wrapper {
-      top: -79px;
-      right: -74px;
+      top: -105px;
+      right: -77px;
       transform: scale3d(0.07, 0.07, 0.07);
       position: absolute;
+    }
+    .isPasswordType {
+      @include eye
     }
   }
   &-md {
     @include font_style($font_size_2md, $line_height_2md, $font_weight_light);
     height: 36px;
+    position: relative;
     .dice-wrapper {
-      top: -72px;
-      right: -69px;
+      top: -102px;
+      right: -75px;
       transform: scale3d(0.08, 0.08, 0.08);
       position: absolute;
+    }
+    .isPasswordType {
+      @include eye
     }
   }
   &-xl {
     @include font_style($font_size_2xl, $line_height_2xl, $font_weight_light);
     height: 42px;
+    position: relative;
     .dice-wrapper {
-      top: -65px;
-      right: -62px;
+      top: -98px;
+      right: -73px;
       transform: scale3d(0.10, 0.10, 0.10);
       position: absolute;
+    }
+    .isPasswordType {
+      @include eye
     }
   }
   &-lg {
     @include font_style($font_size_2lg, $line_height_2lg, $font_weight_light);
     height: 48px;
+    position: relative;
     .dice-wrapper {
-      top: -57px;
-      right: -55px;
+      top: -95px;
+      right: -70px;
       transform: scale3d(0.12, 0.12, 0.12);
       position: absolute;
+    }
+    .isPasswordType {
+      @include eye
     }
   }
 }

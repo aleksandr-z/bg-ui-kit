@@ -11,6 +11,7 @@ export type TInputProps = {
   label?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputType?: 'text' | 'password';
 };
 
 export const Input = ({
@@ -21,13 +22,18 @@ export const Input = ({
   placeholder,
   isLoading = false,
   isDisabled = false,
+  inputType = 'text'
 }: TInputProps) => {
   const [inputValue, setInputValue] = useState<string>(value);
+  const [typeInputValue, setTypeInputValue] = useState(inputType)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(event);
     setInputValue(event.target.value);
   };
+  const changeTypeInputValueHandler = () => setTypeInputValue((prevState) => {
+    return prevState === 'text' ? 'password' : 'text'
+  })
 
   return (
     <>
@@ -46,13 +52,19 @@ export const Input = ({
           disabled={isLoading || isDisabled}
           placeholder={placeholder}
           className={styles.input}
-          type={'text'}
+          type={typeInputValue}
           onChange={handleChange}
           value={inputValue}
         />
         {isLoading && (
           <div className={styles.diceWrapper}>
             <Dice />
+          </div>
+        )}
+        {inputType === 'password' && !isLoading && !isDisabled && (
+          <div className={styles.isPasswordType} onClick={changeTypeInputValueHandler}>
+            {typeInputValue === 'text' &&
+            <div className={styles.openEye}></div>}
           </div>
         )}
       </div>
