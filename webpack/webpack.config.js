@@ -1,12 +1,16 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+  mode: 'production',
+  entry: './src/index.ts',
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    // chunkFilename: './[name]/[chunkhash].js',
+    path: path.resolve(__dirname, '../dist'),
+    library: 'bg-ui-kit',
     publicPath: '/',
+    libraryTarget: 'umd',
   },
   devServer: {
     static: './dist',
@@ -14,9 +18,17 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  optimization: {
-    runtimeChunk: 'single',
+  externals: {
+    react: 'react',
   },
+  // optimization: {
+  //   runtimeChunk: 'single',
+  //   splitChunks: {
+  //     chunks: 'all',
+  //     maxInitialRequests: Infinity,
+  //     minSize: 0,
+  //   },
+  // },
   module: {
     rules: [
       {
@@ -47,5 +59,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './index.html' })],
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: 'styles', to: 'styles' }],
+    }),
+  ],
 };

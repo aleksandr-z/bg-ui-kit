@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./dist/types",
+    "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "lib": ["es2015", "dom"],
     "target": "es5",
     "jsx": "react",
     "pretty": true,
     "allowJs": true,
+    "declaration": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "exclude": ["node_modules", "dist", "src/**/*.(test|spec).tsx?"]
+  "exclude": ["node_modules", "dist", "src/**/*.(test|spec).tsx?"],
+  "include": [
+    "src", "types.d.ts"
+  ]
 }

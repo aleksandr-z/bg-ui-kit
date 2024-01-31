@@ -2,10 +2,17 @@
   "name": "bg-ui-kit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.tsx",
+  "private": false,
+  "main": "./dist/index.js",
+  "module": "./dist/",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "local-publish": "npx yalc publish --no-scripts",
     "start": "webpack serve --watch --mode development --open --config=./webpack/webpack.config.js",
-    "build": "webpack",
+    "build": "webpack --config=./webpack/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -14,9 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/classnames": "^2.3.1",
-    "classnames": "^2.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.10",
@@ -34,6 +39,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.48.0",
     "eslint-config": "^0.3.0",
     "eslint-config-prettier": "^9.0.0",
@@ -44,6 +50,8 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "storybook": "^7.3.2",
@@ -52,5 +60,9 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

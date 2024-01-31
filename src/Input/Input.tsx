@@ -13,7 +13,7 @@ export type TInputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Input = ({
+const Input = ({
   value = '',
   size = 'md',
   onChange,
@@ -59,3 +59,5 @@ export const Input = ({
     </>
   );
 };
+
+export default Input;
