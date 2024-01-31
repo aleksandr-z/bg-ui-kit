@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Input } from '../Input';
+import { Input } from '../index';
 
 const meta: Meta<typeof Input> = {
   title: 'Controllers',
@@ -17,9 +17,9 @@ export const Primary: Story = {
   args: {
     label: 'Описание',
     value: 'Значение',
-    placeholder: 'Плейсхолдер'
+    placeholder: 'Плейсхолдер',
   },
   argTypes: {
-      size: ['xs', 'sm', 'md', 'xl', 'lg'],
+    size: ['xs', 'sm', 'md', 'xl', 'lg'],
   },
 };

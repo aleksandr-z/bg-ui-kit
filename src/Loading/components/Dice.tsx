@@ -12,7 +12,7 @@ type LoadingProps = {
   classNameWrapper?: string;
   classNameDice?: string;
   style?: CSSProperties;
-  onClick: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent) => void;
 };
 
 export const Dice = ({
